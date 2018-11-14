@@ -1,5 +1,5 @@
 import React from "react";
-//import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 
 
 //Navbar
@@ -106,7 +106,7 @@ function ProfilePic() {
   }
   return (
     <div style={styles}>
-      <img src="data:image/png;base64,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"></img>
+      <img src="https://img.icons8.com/cotton/50/000000/guest-male.png" />
     </div>
   );
 }
@@ -164,6 +164,192 @@ function Profile() {
   );
 }
 
+function SideBar() {
+  const styles = {
+    border: "2px solid #c6c6c6",
+    marginTop: "20px",
+    color: "#999",
+    padding: "20px",
+  }
+  return (
+    <div style={styles}>
+       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </div>
+  );
+}
+
+//Feed
+function FeedInput() {
+  const styles = {
+    backgroundColor: "lightblue",
+    paddingBottom: "20px"
+  }
+  const spanStyle = {
+    backgroundColor: 'brown', 
+    height: '28px',
+    width: '28px',
+    display: 'inline-block',
+    margin: '20px 10px 0px 30px'
+  }
+  const inputStyle = {
+    width: "70%",
+    color: "#3cbbde",
+    padding: "5px 5px",
+    border: "2px solid #3cbbde"
+  }
+  return (
+    <div style={styles}>
+      <span style={spanStyle}></span>
+      <input style={inputStyle} type="text" value="What's happening?"/>
+    </div>
+  );
+}
+
+function FeedTweetList () {
+  const styles = {
+    
+  }
+  return (
+    <div>
+      <FeedTweet
+      color="red"
+      />
+      <FeedTweet
+      color="orange"
+      />
+      <FeedTweet
+      color="yellow"
+      />
+      <FeedTweet
+      color="green"
+      />
+      <FeedTweet
+      color="blue"
+      />
+      <FeedTweet
+      color="navy"
+      />
+      <FeedTweet
+      color="purple"
+      />
+    </div>
+  );
+}
+
+function FeedTweet (props) {
+  const styles = {
+    border: "2px solid #c6c6c6",
+    marginTop: '-2px'
+  }
+  const picStyles = {
+    backgroundColor: props.color,
+    width: "50px",
+    height: "50px",
+    margin: "25px",
+    float: "left"
+  }
+
+  const nameStyles = {
+    fontWeight: "700",
+    fontSize: "14px",
+    color: "#999"
+  }
+
+  const statusStyles = {
+    fontSize: "14px",
+    color: "#999"
+  }
+
+  const innerDivStyles = {
+    padding: "20px 0",
+  }
+
+
+  return (
+    <div style={styles}>
+      <figure style={picStyles}>
+        <img src="https://img.icons8.com/ios/50/000000/user-filled.png"/>
+      </figure>
+      <div style={innerDivStyles}>
+        <div style={nameStyles}>
+          Lorem ipsum
+        </div>
+        <div style={statusStyles}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit
+        </div>
+      </div>
+    </div>
+  )
+}
+
+FeedTweet.propTypes = {
+  color: PropTypes.string
+};
+
+function Feed() {
+  const styles = {
+
+  }
+  return (
+    <div>
+      <FeedInput/>
+      <FeedTweetList/>
+    </div>
+  )
+}
+
+function Friend(props) {
+  const styles = {
+    fontSize: "14px",
+    display: "block",
+    margin: "5px 0",
+    color: "#444"
+  }
+  const picStyles = {
+    backgroundColor: props.color,
+    width: "50px",
+    height: "50px",
+    margin: "10px",
+    float: "left"
+  }
+  return (
+    <div style={styles}>
+      <figure style={picStyles}>
+        <img src="https://img.icons8.com/ios/50/000000/user-filled.png"/>
+      </figure>
+      <div>
+        <p><strong>{props.name}</strong></p>
+        <button className="btn-sm btn-primary">Add Friend</button>
+      </div>
+    </div>
+  );
+}
+
+function FriendsBar() {
+  const styles = {
+    border: "2px solid #c6c6c6",
+    padding: '10px',
+    color: "#444"
+  }
+  return (
+    <div style={styles}>
+      <h5>Friends</h5>
+      <Friend
+        color="blue"
+        name="Chan Ethan Lee"
+      /><br/>
+      <Friend
+        color="green"
+        name="Chris Crow"
+      /><br/>
+      <Friend
+        color="red"
+        name="Kenneth Du"
+      />
+    </div>
+  );
+}
+
 
 function Body () {
   const styles = {
@@ -172,7 +358,7 @@ function Body () {
   
   const colStyle = {
     padding: "20px",
-    margin: "0 -10px"
+    margin: "0 -25px"
   }
 
   return (
@@ -180,22 +366,24 @@ function Body () {
       <div  className="col-4">
         <div style={colStyle}>
           <Profile/>
+          <SideBar/>
         </div>
 
       </div>
       <div className="col-5">
       <div style={colStyle}>
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        <Feed/>
       </div>
       </div>
       <div className="col-3">
       <div style={colStyle}>
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        <FriendsBar/>
       </div>
       </div>
     </div>
   );
 }
+
 
 function App(){
 
