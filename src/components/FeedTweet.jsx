@@ -1,60 +1,86 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function FeedTweet (props) {
-  const styles = {
-    border: '2px solid #c6c6c6',
-    marginTop: '-2px'
-  };
-  const picStyles = {
-    width: '50px',
-    height: '50px',
-    margin: '25px',
-    float: 'left',
-    borderRadius: '50%'
-  };
+class FeedTweet extends React.Component {
 
-  const nameStyles = {
-    fontWeight: '700',
-    fontSize: '14px',
-    color: '#999'
-  };
-
-  const statusStyles = {
-    fontSize: '14px',
-    color: '#999'
-  };
-
-  const innerDivStyles = {
-    padding: '20px 0',
-  };
-
-  const imgStyles = {
-    width: "100%",
-    borderRadius: '50%'
+  constructor(props) {
+    super(props);
+    this.handleLikeClick = this.handleLikeClick.bind(this);
   }
 
+  showLiked() {
+      if (this.props.tweet.tweetLiked) {
+        return 'https://img.icons8.com/material-rounded/50/000000/hearts.png';
+      } else {
+        return 'https://img.icons8.com/material-outlined/50/000000/hearts.png';
+      }
+  };
 
-  return (
-    <div style={styles}>
-      <figure style={picStyles}>
-        <img style={imgStyles} src={props.tweet.tweetOwnerPic}/>
-      </figure>
-      <div style={innerDivStyles}>
-        <div style={nameStyles}>
-          {props.tweet.tweetOwner}
-        </div>
-        <div style={statusStyles}>
-          {props.tweet.tweetContent}
+  handleLikeClick() {
+    this.props.onLikeTweet(this.props.index);
+  }
+
+  render() {
+    const styles = {
+      border: '2px solid #c6c6c6',
+      marginTop: '-2px'
+    };
+    const picStyles = {
+      width: '50px',
+      margin: '25px 0 0 25px',
+      float: 'left',
+      borderRadius: '50%'
+    };
+
+    const nameStyles = {
+      fontWeight: '700',
+      fontSize: '14px',
+      color: '#999'
+    };
+
+    const statusStyles = {
+      fontSize: '14px',
+      color: '#999'
+    };
+
+    const innerDivStyles = {
+      marginLeft: '100px',
+      padding: '20px 0'
+    };
+
+    const imgStyles = {
+      width: "100%",
+      borderRadius: '50%'
+    }
+
+    const heartStyle = {
+      width: '24px'
+    }
+
+    return (
+      <div style={styles}>
+        <figure style={picStyles}>
+          <img style={imgStyles} src={this.props.tweet.tweetOwnerPic} />
+        </figure>
+        <div style={innerDivStyles}>
+          <div style={nameStyles}>
+            {this.props.tweet.tweetOwner}
+          </div>
+          <div style={statusStyles}>
+            {this.props.tweet.tweetContent}
+          </div>
+          <div>
+            <img style={heartStyle} src={this.showLiked()} onClick={this.handleLikeClick} />
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 FeedTweet.propTypes = {
-  color: PropTypes.string,
-  tweet: PropTypes.object
+  tweet: PropTypes.object,
+  onLikeTweet: PropTypes.func
 };
 
 export default FeedTweet;

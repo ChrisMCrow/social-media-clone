@@ -5,7 +5,7 @@ import Feed from './Feed';
 import FriendsBar from './FriendsBar';
 import PropTypes from 'prop-types';
 
-function Body (props) {
+function Body(props) {
   const styles = {
     
   };
@@ -27,7 +27,11 @@ function Body (props) {
       </div>
       <div className="col-5">
         <div style={colStyle}>
-          <Feed feedTweetList = {props.currentUser.masterFeedTweetList}/>
+          <Feed 
+            currentUser = {props.currentUser}
+            onNewTweet = {props.onNewTweet}
+            onLikeTweet = {props.onLikeTweet}
+          />
         </div>
       </div>
       <div className="col-3">
@@ -40,7 +44,8 @@ function Body (props) {
 }
 
 Body.propTypes = {
-  currentUser: PropTypes.object
+  currentUser: PropTypes.object,
+  onNewTweet: PropTypes.func
 }
 
 export default Body;

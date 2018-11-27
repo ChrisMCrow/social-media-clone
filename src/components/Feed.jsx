@@ -9,14 +9,19 @@ function Feed(props) {
   };
   return (
     <div>
-      <FeedInput/>
-      <FeedTweetList feedTweetList = {props.feedTweetList}/>
+      <FeedInput 
+        onNewTweet = {props.onNewTweet}
+        currentUser = {props.currentUser}
+      />
+      <FeedTweetList feedTweetList = {props.currentUser.masterFeedTweetList}
+      onLikeTweet = {props.onLikeTweet}/>
     </div>
   );
 }
 
 Feed.propTypes = {
-  feedTweetList: PropTypes.array
+  currentUser: PropTypes.object,
+  onNewTweet: PropTypes.func
 }
 
 export default Feed;
